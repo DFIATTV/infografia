@@ -1,18 +1,39 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card-row {
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card {
+  margin: 10px;
+  height: 90%;
+  width: 90%;
+  position: center;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  width: 200px;
+  height: 250px;
+  perspective: 800px;
+  display: flex;
+  flex-wrap: wrap;
 }
-
+.image {
+  padding-top: 30px;
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+.card-container {
+  display: flex;
+  overflow: auto;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +56,76 @@
   to {
     transform: rotate(360deg);
   }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(180deg, #132ad8, #17aba9);
+  font-family: Helvetica, sans-serif;
+  color: rgb(211, 211, 211);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name{
+  font-size:medium;
+  margin-top: 10px;
+}
+
+.container:hover > .card {
+  cursor: pointer;
+  transform: rotateY(180deg);
+}
+
+.desc{
+  font-size: 15px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.func{
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front {
+  background-color:rgba(0, 0, 0, 0.35);
+  background-position: center;
+  background-size: cover;
+}
+
+.back {
+  background-color: #1c1b1b;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 2rem;
 }
